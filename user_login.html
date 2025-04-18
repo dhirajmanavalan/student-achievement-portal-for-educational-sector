@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #7e5d5d, #fafafa);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+        }
+        .card {
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            color: #333;
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.02); 
+        }
+        .form-control {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            color: #333;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            border-color: #ff7eb3;
+            box-shadow: 0 0 10px rgba(255, 126, 179, 0.3);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            border-radius: 8px;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            transform: scale(1.05);
+        }
+        .text-center a {
+            color: #ff758c;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .text-center a:hover {
+            color: #ff007f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 text-center shadow-lg" style="max-width: 400px; width: 100%;">
+            <h2 class="mb-4">🔑 User Login</h2>
+            <form method="POST" action="user_login.php" onsubmit="return validateForm()">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required autocomplete="username">
+                    <div class="invalid-feedback">Please enter your username.</div>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                    <div class="invalid-feedback">Please enter your password.</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="admin_login.html">👨‍💼 Admin Login</a>
+            </div>
+            <div class="text-center mt-3">
+                <p>New User? <a href="register.html">Create an Account</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            let username = document.getElementById('username');
+            let password = document.getElementById('password');
+
+            if (username.value.trim() === "") {
+                username.classList.add('is-invalid');
+                return false;
+            } else {
+                username.classList.remove('is-invalid');
+            }
+
+            if (password.value.trim() === "") {
+                password.classList.add('is-invalid');
+                return false;
+            } else {
+                password.classList.remove('is-invalid');
+            }
+
+            return true;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

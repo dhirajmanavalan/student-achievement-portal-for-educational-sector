@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Achievement Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Achievement Upload</h2>
+        <form id="achievementForm" action="upload.php" method="POST" enctype="multipart/form-data">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="studentID">Student ID / Roll Number:</label>
+            <input type="text" id="studentID" name="studentID" required>
+
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="eventName" required>
+
+            <label for="eventType">Event Type:</label>
+            <select id="eventType" name="eventType" required>
+                <option value="Competition">Competition</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Hackathon">Hackathon</option>
+            </select>
+
+            <label for="eventDate">Date of Event:</label>
+            <input type="date" id="eventDate" name="eventDate" required>
+
+            <label for="certificate">Certificate Upload (PDF, JPG, PNG | Max 5MB):</label>
+            <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.png" required>
+
+            <label for="abstract">Abstract:</label>
+            <textarea id="abstract" name="abstract" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
